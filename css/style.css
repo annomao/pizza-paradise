@@ -2,12 +2,17 @@ html{
   box-sizing: border-box;
 }
 body{
-  height: 100vh;
+  height: auto;
   background-image: url("../assets/h_image.jpg");
   background-repeat: no-repeat;
   background-size:cover;
+  color: white;
 }
 .link-color{
   color: white !important;
   font-size: 125%;
+}
+
+#home-item{
+  text-align: left;
 }
