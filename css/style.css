@@ -19,3 +19,6 @@ body{
 #intro-container{
   height: 100vh;
 }
+#about{
+  height: 100%;
+}
