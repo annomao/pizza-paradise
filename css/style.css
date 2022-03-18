@@ -13,9 +13,9 @@ body{
   color: white !important;
   font-size: 125%;
 }
-#home-container{
-  height: 100vh;
-}
-#home-item{
+#home{
   text-align: right;
+}
+#intro-container{
+  height: 100vh;
 }
