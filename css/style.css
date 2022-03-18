@@ -3,16 +3,19 @@ html{
 }
 body{
   height: auto;
-  background-image: url("../assets/h_image.jpg");
+  background-image: url("../assets/bg-1.jpg");
   background-repeat: no-repeat;
   background-size:cover;
   color: white;
+  
 }
 .link-color{
   color: white !important;
   font-size: 125%;
 }
-
+#home-container{
+  height: 100vh;
+}
 #home-item{
-  text-align: left;
+  text-align: right;
 }
