@@ -10,7 +10,73 @@
   <link rel="stylesheet" href="css/order.css">
 </head>
 <body>
+  <section>
+    <div class="container">
 
+      <div class="row">
+
+        <div class="col-md-6 transparent">
+          <form>
+            <div class="mb-3">
+              <label for="number" class="form-label">Please Select the Pizza Size you want</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>-------</option>
+                <option value="large">Large</option>
+                <option value="medium">Medium</option>
+                <option value="small">Small</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Please select the type of crust you want</label>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>-------</option>
+                <option value="crispy">Crispy</option>
+                <option value="stuffed">Stuffed</option>
+                <option value="glutenfree">Gluten Free</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <p>Please choose your favorite meat toppings</p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="chicken">
+                <label class="form-check-label" for="inlineRadio1">Chicken</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="beef">
+                <label class="form-check-label" for="inlineRadio2">Beef</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="chevon">
+                <label class="form-check-label" for="inlineRadio3">Chevon</label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <p>Please choose your favorite toppings</p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="peppers">
+                <label class="form-check-label" for="inlineCheckbox1">Peppers</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="onions">
+                <label class="form-check-label" for="inlineCheckbox2">Onions</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="olives">
+                <label class="form-check-label" for="inlineCheckbox3">Olives</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="pineapples">
+                <label class="form-check-label" for="inlineCheckbox1">Pineapples</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">MAKE ORDER</button>
+            
+          </form>
+        </div>
+        <div class="col-md-6 transparent">type something</div>
+      </div> 
+    </div>
+  </section>
   
   <script src="https://code.jquery.com/jquery-3.6.0.js" 
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

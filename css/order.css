@@ -1,10 +1,19 @@
 *{
   box-sizing: border-box;
 }
-html{
+body{
   height: 100vh;
   background-image: url("../assets/pizza1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.container{
+  background-color: rgba(255,228,196,0.4);
+  opacity: 0.8;
+  height: auto;
+}
+.transparent {
+  border: 2px solid red;
+  background: rgba(76, 175, 80, 0.1) /* Green background with 30% opacity */
 }
