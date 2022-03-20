@@ -16,10 +16,10 @@
       <div class="row d-flex justify-content-evenly align-items-center">
 
         <div class="col-md-6 p-3 m-2 transparent">
-          <form>
+          <form id="pizza-form">
             <div class="mb-3">
               <label for="number" class="form-label">Please Select the Pizza Size you want</label>
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" id="size">
                 <option selected>-------</option>
                 <option value="large">Large</option>
                 <option value="medium">Medium</option>
@@ -28,7 +28,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Please select the type of crust you want</label>
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" id="crust">
                 <option selected>-------</option>
                 <option value="crispy">Crispy</option>
                 <option value="stuffed">Stuffed</option>
@@ -53,19 +53,19 @@
             <div class="mb-3">
               <p>Please choose your favorite toppings</p>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="peppers">
+                <input class="form-check-input" type="checkbox" name="toppings" id="inlineCheckbox1" value="peppers">
                 <label class="form-check-label" for="inlineCheckbox1">Peppers</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="onions">
+                <input class="form-check-input" type="checkbox" name="toppings" id="inlineCheckbox2" value="onions">
                 <label class="form-check-label" for="inlineCheckbox2">Onions</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="olives">
+                <input class="form-check-input" type="checkbox" name="toppings" id="inlineCheckbox3" value="olives">
                 <label class="form-check-label" for="inlineCheckbox3">Olives</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="pineapples">
+                <input class="form-check-input" type="checkbox" name="toppings" id="inlineCheckbox1" value="pineapples">
                 <label class="form-check-label" for="inlineCheckbox1">Pineapples</label>
               </div>
             </div>
