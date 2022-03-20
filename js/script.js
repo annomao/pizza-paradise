@@ -58,25 +58,34 @@ $("document").ready(function(){
     });
 
     pizza = new Pizza(size,crust,meat,selectedToppings);
+
     pizza["price"] = totalPrice;
 
     pizzaOrders.push(pizza);
 
     updateTheTable();
+    deleteOrder();
     form.reset();
-    console.log(pizza)
-  })
+
+  });
+
+  function deleteOrder(){
+    $('.btnDelete').on({click: function(){
+      var index = $('.btnDelete').index(this);
+      pizzaOrders.splice(index, 1);
+      $('.div-results').eq(index).remove();}
+    })
+  }
 
 
 function updateTheTable(){
-  $("table tbody").append(`
-    <tr>
-      <td>${pizza.size}</td>
-      <td>${pizza.crust}</td>
-      <td>${pizza.meat}</td>
-      <td>${pizza.toppings}</td>
-      <td>${pizza.price}</td>
-    </tr>
+  $("div #results").append(`
+    <div class="div-results">
+      ${pizza.size} | ${pizza.crust} | ${pizza.meat} | ${pizza.toppings} | ${pizza.price}
+       <button type="button" class="btn btn-primary btn-sm btnDelete">DELETE</button>
+    </div>
   `)
+  $("#btn-order").html("ADD ORDER");
 }
+
 })
