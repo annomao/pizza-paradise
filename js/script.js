@@ -16,20 +16,44 @@ Pizza.prototype.calculateTotalPrice = function(){
   })
 }
 
-priceToppings = {
+priceToppingsLarge = {
   "large": 800,
-  "medium" :600,
-  "small": 400,
   "crispy": 200,
   "stuffed": 300,
   "glutenfree": 400,
   "chicken": 200,
   "beef": 200,
   "chevon": 200,
-  "peppers": 100,
-  "onions": 50,
+  "peppers": 200,
+  "onions": 150,
+  "olives": 250,
+  "pineapples": 200,
+}
+priceToppingsMedium = {
+  "medium" :600,
+  "crispy": 150,
+  "stuffed": 250,
+  "glutenfree": 350,
+  "chicken": 150,
+  "beef": 150,
+  "chevon": 150,
+  "peppers": 150,
+  "onions": 100,
   "olives": 200,
   "pineapples": 150,
+}
+priceToppingsSmall = {
+  "small": 400,
+  "crispy": 100,
+  "stuffed": 200,
+  "glutenfree": 300,
+  "chicken": 100,
+  "beef": 100,
+  "chevon": 100,
+  "peppers": 100,
+  "onions": 50,
+  "olives": 150,
+  "pineapples": 100,
 }
 
 // form and dom manipulation
@@ -47,16 +71,38 @@ $("document").ready(function(){
       selectedToppings.push(this.value);
     });
 
+    //combine values to one array
     listToppings = selectedToppings.concat([size, crust, meat]);
 
-    listOfPrices = listToppings.map(item =>{
-      return priceToppings[item];
-    });
-
-    totalPrice = listOfPrices.reduce((total,current) =>{
-      return total +=current
-    });
-
+    // Calculate price based on size
+    if(size === "large"){
+      listOfPrices = listToppings.map(item =>{
+        return priceToppingsLarge[item];
+      });
+  
+      totalPrice = listOfPrices.reduce((total,current) =>{
+        return total +=current
+      });
+    }
+    else if(size === "medium"){
+      listOfPrices = listToppings.map(item =>{
+        return priceToppingsMedium[item];
+      });
+  
+      totalPrice = listOfPrices.reduce((total,current) =>{
+        return total +=current
+      });
+    }
+    else{
+      listOfPrices = listToppings.map(item =>{
+        return priceToppingsSmall[item];
+      });
+  
+      totalPrice = listOfPrices.reduce((total,current) =>{
+        return total +=current
+      });
+    }
+    
     pizza = new Pizza(size,crust,meat,selectedToppings);
 
     pizza["price"] = totalPrice;
