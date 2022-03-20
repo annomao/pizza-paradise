@@ -52,17 +52,31 @@ $("document").ready(function(){
     listOfPrices = listToppings.map(item =>{
       return priceToppings[item];
     });
-    
+
     totalPrice = listOfPrices.reduce((total,current) =>{
       return total +=current
     });
 
     pizza = new Pizza(size,crust,meat,selectedToppings);
-    pizza["prices"] = totalPrice;
+    pizza["price"] = totalPrice;
 
+    pizzaOrders.push(pizza);
 
+    updateTheTable();
+    form.reset();
     console.log(pizza)
-
   })
 
+
+function updateTheTable(){
+  $("table tbody").append(`
+    <tr>
+      <td>${pizza.size}</td>
+      <td>${pizza.crust}</td>
+      <td>${pizza.meat}</td>
+      <td>${pizza.toppings}</td>
+      <td>${pizza.price}</td>
+    </tr>
+  `)
+}
 })
