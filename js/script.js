@@ -52,6 +52,8 @@ priceToppingsSmall = {
 // form and dom manipulation
 $("document").ready(function(){
 
+  const confirmCheckoutModal = new bootstrap.Modal($('#exampleModal'));
+
   $('#pizza-form').on('submit', function(evt){
     evt.preventDefault();
 
@@ -110,16 +112,17 @@ $("document").ready(function(){
   $("#checkout-btn").on("click", function(){
     if(pizzaOrders.length == 0){
       $(".modal-body").text("Please make an order");
-      $("#btn-checkout").addClass("d-none");
+      $("#btn-checkout").addClass("d-none"); 
     }
     else{
       calculateGrandTotal();
       $(".modal-body").text("The amount payable for the orders is "+ grandTotal +" .");
-      $("#btn-checkout").removeClass("d-none");
-    }  
+      $("#btn-checkout").removeClass("d-none"); 
+    }
   });
   //prompt user if they would love delivery
   $("#btn-checkout").on("click",function(){
+    confirmCheckoutModal.hide();  
     let text = "WOuld you like to have your order delivered??";
     if (confirm(text) == true) {
 
