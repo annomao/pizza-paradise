@@ -97,7 +97,7 @@ $("document").ready(function(){
         return total +=current
       });
     }
-    
+    //create new pizza object
     pizza = new Pizza(size,crust,meat,selectedToppings);
 
     pizza["price"] = totalPrice;
@@ -118,6 +118,7 @@ $("document").ready(function(){
       calculateGrandTotal();
       $(".modal-body").text("The amount payable for the orders is "+ grandTotal +" .");
       $("#btn-checkout").removeClass("d-none"); 
+      $(".table-results tbody").empty();
     }
   });
   //prompt user if they would love delivery
@@ -131,18 +132,28 @@ $("document").ready(function(){
         const transport = 300;
         calculateGrandTotal();
         printOrders();
+        let totalHolder = grandTotal+transport;
         $("#no-order-results").text(
           `Your order will be ready in 1 hour. It will be delivered at ${location}
         . The total charge for delivery is ${transport}.
-        These are your pizza orders ${items}.`);
+        These are your pizza orders: ${holder}.
+        Your total price is: ${totalHolder}`);
+        pizzaOrders = [];
       }
     } 
     else {
       printOrders();
-      $("#no-order-results").text(`Your order will be ready in 1 hour. Don't forget to come pick!! \n
-      These are your pizza orders ${items}.`);
+      calculateGrandTotal();
+      $("#no-order-results").text(`Your order will be ready in 1 hour. Don't forget to come pick!!
+      These are your pizza orders: ${holder}. Your total price is: ${grandTotal}`);
+      pizzaOrders = [];
   }
   })
+
+  //empty array when modal close button is clicked
+  $("#btn-close").on("click",function(){
+    pizzaOrders = [];
+  });
 
 //function that creates table body with updated orders
   function updateTheTable(){
@@ -171,7 +182,8 @@ $("document").ready(function(){
   function printOrders(){
     items = pizzaOrders.map(item=>{
       return Object.values(item);
-    })
+    });
+    holder = items.join(' : ')
   }
 
 })
