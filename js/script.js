@@ -131,19 +131,22 @@ $("document").ready(function(){
         const transport = 300;
         calculateGrandTotal();
         printOrders();
-        $("#no-order-results").text(`Your order will be ready in 1 hour. It will be delivered at ${location}
+        $("#no-order-results").text(
+          `Your order will be ready in 1 hour. It will be delivered at ${location}
         . The total charge for delivery is ${transport}.
-        These are your orders ${items}.`);
+        These are your pizza orders ${items}.`);
       }
     } 
     else {
-      $("#no-order-results").text("Your order will be ready in 1 hour. Don't forget to come pick!!");
+      printOrders();
+      $("#no-order-results").text(`Your order will be ready in 1 hour. Don't forget to come pick!! \n
+      These are your pizza orders ${items}.`);
   }
   })
 
 //function that creates table body with updated orders
   function updateTheTable(){
-    $(".table-results").append(`
+    $(".table-results tbody").append(`
       <tr>
         <td>${pizza.size} </td>
         <td>${pizza.crust}</td>
@@ -167,9 +170,7 @@ $("document").ready(function(){
   //function to print order
   function printOrders(){
     items = pizzaOrders.map(item=>{
-      $.each( item, function( key, value ) {
-        return value;
-      });
+      return Object.values(item);
     })
   }
 
