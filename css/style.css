@@ -1,7 +1,7 @@
 html{
   box-sizing: border-box;
 }
-body{
+#home{
   height: auto;
   background-image: url("../assets/bg-1.jpg");
   background-repeat: no-repeat;
@@ -18,7 +18,4 @@ body{
 }
 #intro-container{
   height: 100vh;
-}
-#about{
-  height: 100%;
 }
