@@ -124,7 +124,7 @@ $("document").ready(function(){
   //prompt user if they would love delivery
   $("#btn-checkout").on("click",function(){
     confirmCheckoutModal.hide();  
-    let text = "WOuld you like to have your order delivered??";
+    let text = "Would you like to have your order delivered??";
     if (confirm(text) == true) {
 
       let location = prompt("Please enter your Location");;
