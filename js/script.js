@@ -9,13 +9,6 @@ function Pizza(size, crust, meat ,toppings){
     this.price;
 }
 
-Pizza.prototype.calculateTotalPrice = function(){
-  const total = this.prices.reduce((total, price)=>{
-      total += price;
-      return total;
-  })
-}
-
 priceToppingsLarge = {
   "large": 800,
   "crispy": 200,
@@ -113,17 +106,57 @@ $("document").ready(function(){
     form.reset();
   });
 
-function updateTheTable(){
-  $("table tbody").append(`
-    <tr>
-      <td>${pizza.size} </td>
-      <td>${pizza.crust}</td>
-      <td>${pizza.meat}</td>
-      <td>${pizza.toppings}</td>
-      <td>${pizza.price}</td>
-    </tr>
-  `)
-  $("#btn-order").html("ADD ORDER");
-}
+  //calculate grand total price
+  function calculateGrandTotal(){
+    totals = pizzaOrders.map(item =>{
+      return item.price;
+    });
+    grandTotal = totals.reduce((total,current) =>{
+      return total +=current
+    });
+  }
+  //pop up that shows grand total price
+  $("#checkout-btn").on("click", function(){
+    if(pizzaOrders.length == 0){
+      $(".modal-body").text("Please make an order");
+      $("#btn-checkout").addClass("d-none");
+    }
+    else{
+      calculateGrandTotal();
+      $(".modal-body").text("The amount payable for the orders is "+ grandTotal +" .");
+      $("#btn-checkout").removeClass("d-none");
+    }  
+  });
+
+  $("#btn-checkout").on("click",function(){
+    let text = "WOuld you like to have your order delivered??";
+    if (confirm(text) == true) {
+
+      let location = prompt("Please enter your Location");;
+      if (location != null) {
+        const transport = 300;
+        $("#no-order-results").text(`Your order will be ready in 1 hour. It will be delivered at ${location}
+        . The total charge for delivery is ${transport}.
+        These are your orders ${pizzaOrders}.`);
+      }
+    } 
+    else {
+      $("#no-order-results").text("Your order will be ready in 1 hour. Don't forget to come pick!!");
+  }
+  })
+
+//function that creates table body with updated orders
+  function updateTheTable(){
+    $(".table-results").append(`
+      <tr>
+        <td>${pizza.size} </td>
+        <td>${pizza.crust}</td>
+        <td>${pizza.meat}</td>
+        <td>${pizza.toppings}</td>
+        <td>${pizza.price}</td>
+      </tr>
+    `)
+    $("#btn-order").html("ADD ORDER");
+  }
 
 })
