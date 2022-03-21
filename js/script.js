@@ -106,15 +106,6 @@ $("document").ready(function(){
     form.reset();
   });
 
-  //calculate grand total price
-  function calculateGrandTotal(){
-    totals = pizzaOrders.map(item =>{
-      return item.price;
-    });
-    grandTotal = totals.reduce((total,current) =>{
-      return total +=current
-    });
-  }
   //pop up that shows grand total price
   $("#checkout-btn").on("click", function(){
     if(pizzaOrders.length == 0){
@@ -127,7 +118,7 @@ $("document").ready(function(){
       $("#btn-checkout").removeClass("d-none");
     }  
   });
-
+  //prompt user if they would love delivery
   $("#btn-checkout").on("click",function(){
     let text = "WOuld you like to have your order delivered??";
     if (confirm(text) == true) {
@@ -135,9 +126,11 @@ $("document").ready(function(){
       let location = prompt("Please enter your Location");;
       if (location != null) {
         const transport = 300;
+        calculateGrandTotal();
+        printOrders();
         $("#no-order-results").text(`Your order will be ready in 1 hour. It will be delivered at ${location}
         . The total charge for delivery is ${transport}.
-        These are your orders ${pizzaOrders}.`);
+        These are your orders ${items}.`);
       }
     } 
     else {
@@ -157,6 +150,24 @@ $("document").ready(function(){
       </tr>
     `)
     $("#btn-order").html("ADD ORDER");
+  }
+
+  //calculate grand total price
+  function calculateGrandTotal(){
+    totals = pizzaOrders.map(item =>{
+      return item.price;
+    });
+    grandTotal = totals.reduce((total,current) =>{
+      return total +=current
+    });
+  }
+  //function to print order
+  function printOrders(){
+    items = pizzaOrders.map(item=>{
+      $.each( item, function( key, value ) {
+        return value;
+      });
+    })
   }
 
 })
